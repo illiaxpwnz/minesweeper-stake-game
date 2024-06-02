@@ -14,10 +14,10 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  width: 100%;
+  max-width: 740px;
   height: 100px;
   background-color: #213743;
-  margin-bottom: 10px;
+  margin-bottom: 3px;
   color: #ffffff;
   font-size: 24px;
   font-weight: bold;
