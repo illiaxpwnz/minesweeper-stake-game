@@ -68,7 +68,7 @@ body {
 
 .container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+  grid-template-columns: repeat(5, 1fr);
   grid-gap: 5px;
   padding: 10px;
   width: 100%;
@@ -80,14 +80,13 @@ body {
   border-radius: 7px;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.3s;
-}
-
-.box {
+  position: relative;
   aspect-ratio: 1;
   width: 100%;
+  background-size: cover; /* Ensure images cover the button */
 }
 
-.box:hover {
+.container button:hover {
   background-color: #557085;
   transform: scale(1.1);
 }
@@ -155,7 +154,7 @@ body {
   }
 
   .container {
-    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    grid-template-columns: repeat(5, 1fr);
     max-width: 500px;
   }
 }
