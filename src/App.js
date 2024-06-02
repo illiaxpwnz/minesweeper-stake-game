@@ -5,9 +5,36 @@ import './index.css';
 const BOARD_SIZE = 5;
 const POINT_REWARD = 100;
 
-const App = () => {
+const App = ({
+  oneCliked,
+  twoCliked,
+  threeCliked,
+  fourCliked,
+  fiveCliked,
+  sixCliked,
+  sevenCliked,
+  eightCliked,
+  nineCliked,
+  tenCliked,
+  elevenCliked,
+  twelveCliked,
+  thirteenCliked,
+  fourteenCliked,
+  fifteenCliked,
+  sixteenCliked,
+  seventeenCliked,
+  eighteenCliked,
+  nineteenCliked,
+  twentyCliked,
+  twentyOneCliked,
+  twentyTwoCliked,
+  twentyThreeCliked,
+  twentyFourCliked,
+  twentyFiveCliked
+}) => {
   const [numberOfMines, setNumberOfMines] = useState('');
   const [playing, setPlaying] = useState(false);
+  const [cashout, setCashout] = useState(false);
   const [lost, setLost] = useState(false);
   const [multiplier, setMultiplier] = useState(0);
   const [scoreNumber, setScoreNumber] = useState(0.0000000);
@@ -17,7 +44,7 @@ const App = () => {
   const finalPoints = multiplier * POINT_REWARD;
 
   const resetCss = () => {
-    let boxes = document.getElementsByClassName('cell');
+    let boxes = document.getElementsByClassName('box');
     for (let i = 0; i < 25; i++) {
       boxes[i].style.backgroundImage = '';
     }
@@ -25,16 +52,26 @@ const App = () => {
   };
 
   const verifier = (nb) => {
-    return minesSelectedNumber.includes(nb);
+    return minesSelectedNumber.some((number) => {
+      return nb === number;
+    });
   };
 
   const importMinesNumber = () => {
     let newMinesSelectedNumber = [];
     let min = 1;
     let max = 25;
+    if (numberOfMines === 1) {
+      var rnbb = random.int(min, max);
+      newMinesSelectedNumber.push(rnbb);
+      setMinesSelectedNumber(newMinesSelectedNumber);
+      return;
+    }
     for (let i = 0; i < parseInt(numberOfMines); i++) {
       let rNB = random.int(min, max);
-      if (!newMinesSelectedNumber.includes(rNB)) {
+      let doesExistInArray = verifier(rNB);
+
+      if (!doesExistInArray) {
         newMinesSelectedNumber.push(rNB);
       } else {
         i--;
@@ -44,9 +81,9 @@ const App = () => {
   };
 
   const pickHandler = (e) => {
-    const value = parseInt(e.target.getAttribute('data-value'));
+    const value = parseInt(e.target.value);
     const isMine = verifier(value);
-    const boxElement = e.target;
+    const boxElement = document.getElementsByClassName(`box${value}`)[0];
 
     if (isMine) {
       boxElement.style.backgroundImage = "url('https://svgur.com/i/Y6x.svg')";
@@ -124,26 +161,52 @@ const App = () => {
         </div>
         <div id="game-board" className="container">
           {Array.from({ length: 25 }, (_, i) => (
-            <div
+            <button
               key={i + 1}
-              className={`cell box${i + 1}`}
-              data-value={i + 1}
+              className={`cell box box${i + 1}`}
               onClick={pickHandler}
+              value={i + 1}
               disabled={disableButton}
-            >
-              <div></div>
-            </div>
+            ></button>
           ))}
-          <div className="finish-score">
+          <button className="finish-score">
             <div className="finish-score center">
               <span> {multiplier}X</span>
               <p>{scoreNumber}</p>
             </div>
-          </div>
+          </button>
         </div>
       </div>
     </>
   );
+};
+
+App.defaultProps = {
+  oneCliked: false,
+  twoCliked: false,
+  threeCliked: false,
+  fourCliked: false,
+  fiveCliked: false,
+  sixCliked: false,
+  sevenCliked: false,
+  eightCliked: false,
+  nineCliked: false,
+  tenCliked: false,
+  elevenCliked: false,
+  twelveCliked: false,
+  thirteenCliked: false,
+  fourteenCliked: false,
+  fifteenCliked: false,
+  sixteenCliked: false,
+  seventeenCliked: false,
+  eighteenCliked: false,
+  nineteenCliked: false,
+  twentyCliked: false,
+  twentyOneCliked: false,
+  twentyTwoCliked: false,
+  twentyThreeCliked: false,
+  twentyFourCliked: false,
+  twentyFiveCliked: false,
 };
 
 export default App;
