@@ -2,66 +2,125 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+}
+
+h1 {
+  margin: 20px 0;
+}
+
+#game-board {
+  display: grid;
+  margin: 20px auto;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 5px;
+  max-width: 90vw;
+  justify-content: center;
+}
+
+.cell {
+  width: 100%;
+  padding-top: 100%; /* Creates a square aspect ratio */
+  position: relative;
+  background-color: #ddd;
+  border: 1px solid #aaa;
+  cursor: pointer;
+}
+
+.cell.mine {
+  background-color: red;
+}
+
+.cell.revealed {
+  background-color: #fff;
+}
+
+.cell > div {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+}
+
 .score {
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  max-width: 740px;
+  max-width: 90vw;
   height: 100px;
   background-color: #213743;
   margin-bottom: 3px;
 }
 
 .wrapper {
-  position: relative;
-  display: flex;
-  max-height: 650px;
-  max-width: 740px;
-}
-
-.wrapper .settings {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
-  background-color: rgb(33, 55, 67);
-  min-width: 200px;
-}
-
-.settings .btn {
-  position: relative;
-  display: inline-flex;
-  justify-content: center;
   align-items: center;
-  text-align: center;
-  box-shadow: rgb(0 0 0 / 20%) 0px 1px 3px 0px, rgb(0 0 0 / 12%) 0px 1px 2px 0px;
-  background: rgb(31, 255, 32);
-  padding: 25px;
-  font-size: 25px;
-  font-weight: bold;
-  border: 1px solid transparent;
-  border-radius: 15px;
-}
-
-.btn-container {
-  text-align: center;
-  padding-top: 100px;
-}
-
-.container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
-  grid-gap: 5px;
-  background-color: #0F212E;
-  padding: 3px;
   max-width: 90vw;
   margin: auto;
 }
 
-.container button {
-  background-color: #2F4553;
-  aspect-ratio: 1;
+.settings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(33, 55, 67);
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.settings .btn-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.settings .mineNumberSetting {
+  margin-bottom: 20px;
+  color: #ccc;
+}
+
+.settings .mineNumberText {
+  margin-bottom: 10px;
+}
+
+.settings .btn {
+  background: rgb(31, 255, 32);
+  padding: 15px 25px;
+  font-size: 20px;
+  font-weight: bold;
+  border: 1px solid transparent;
+  border-radius: 10px;
   cursor: pointer;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 5px;
+  background-color: #0f212e;
+  padding: 10px;
+  max-width: 90vw;
+  justify-content: center;
 }
 
 .container .box {
@@ -104,82 +163,4 @@
   width: 100%;
   padding: 1em;
   display: block;
-}
-
-.mineNumberSetting {
-  display: flex;
-  color: #ccc;
-  flex-direction: column;
-  text-align: left;
-  margin-bottom: 15px;
-  font-size: 18px;
-}
-
-.mineNumberText {
-  margin-bottom: 15px;
-}
-
-#mineNumber {
-  display: flex;
-  width: 100%;
-  height: 30px;
-  flex: 1;
-  background: #0F212E;
-  color: white;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  margin: 0;
-  padding: 0;
-  background-color: #f0f0f0;
-}
-
-h1 {
-  margin: 20px 0;
-}
-
-#game-board {
-  display: grid;
-  margin: 20px auto;
-  grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
-  grid-gap: 5px;
-  max-width: 90vw;
-}
-
-.cell {
-  width: 100%;
-  padding-top: 100%; /* Creates a square aspect ratio */
-  position: relative;
-  background-color: #ddd;
-  border: 1px solid #aaa;
-  cursor: pointer;
-}
-
-.cell.mine {
-  background-color: red;
-}
-
-.cell.revealed {
-  background-color: #fff;
-}
-
-.cell > div {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.5em;
-}
-
-button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 1em;
-  cursor: pointer;
 }
