@@ -16,20 +16,20 @@ h1 {
 
 #game-board {
   display: grid;
-  margin: 20px auto;
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 5px;
-  max-width: 90vw;
-  justify-content: center;
+  margin: 20px auto;
+  max-width: 400px;
 }
 
 .cell {
   width: 100%;
   padding-top: 100%; /* Creates a square aspect ratio */
   position: relative;
-  background-color: #ddd;
+  background-color: #2F4553;
   border: 1px solid #aaa;
   cursor: pointer;
+  border-radius: 7px;
 }
 
 .cell.mine {
@@ -111,30 +111,6 @@ button {
   border: 1px solid transparent;
   border-radius: 10px;
   cursor: pointer;
-}
-
-.container {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-gap: 5px;
-  background-color: #0f212e;
-  padding: 10px;
-  max-width: 90vw;
-  justify-content: center;
-}
-
-.container .box {
-  border: 1px solid black;
-  border-radius: 7px;
-  transition: 0.3s;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.container .box:hover {
-  background-color: #557085;
-  transform: scale(1.1);
-  transform-origin: bottom;
 }
 
 .finish-score {
