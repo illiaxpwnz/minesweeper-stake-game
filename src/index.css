@@ -19,7 +19,8 @@ h1 {
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 5px;
   margin: 20px auto;
-  max-width: 400px;
+  width: 100%;
+  max-width: 500px; /* Ensuring it doesn't exceed 500px */
 }
 
 .cell {
@@ -64,7 +65,7 @@ button {
   align-items: center;
   justify-content: center;
   text-align: center;
-  max-width: 90vw;
+  width: 100%;
   height: 100px;
   background-color: #213743;
   margin-bottom: 3px;
@@ -74,7 +75,7 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 90vw;
+  width: 100%;
   margin: auto;
 }
 
