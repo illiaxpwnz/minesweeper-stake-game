@@ -17,7 +17,7 @@ const App = () => {
   const finalPoints = multiplier * POINT_REWARD;
 
   const resetCss = () => {
-    let boxes = document.getElementsByClassName('box');
+    let boxes = document.getElementsByClassName('cell');
     for (let i = 0; i < 25; i++) {
       boxes[i].style.backgroundImage = '';
     }
@@ -44,10 +44,9 @@ const App = () => {
   };
 
   const pickHandler = (e) => {
-    const value = parseInt(e.target.value);
+    const value = parseInt(e.target.getAttribute('data-value'));
     const isMine = verifier(value);
-    const boxClass = `box${value}`;
-    const boxElement = document.getElementsByClassName(boxClass)[0];
+    const boxElement = e.target;
 
     if (isMine) {
       boxElement.style.backgroundImage = "url('https://svgur.com/i/Y6x.svg')";
@@ -128,8 +127,8 @@ const App = () => {
             <div
               key={i + 1}
               className={`cell box${i + 1}`}
+              data-value={i + 1}
               onClick={pickHandler}
-              value={i + 1}
               disabled={disableButton}
             >
               <div></div>
