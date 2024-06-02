@@ -123,22 +123,24 @@ const App = () => {
             </button>
           </div>
         </div>
-        <div className="container">
+        <div id="game-board" className="container">
           {Array.from({ length: 25 }, (_, i) => (
-            <button
+            <div
               key={i + 1}
-              className={`box box${i + 1}`}
+              className={`cell box${i + 1}`}
               onClick={pickHandler}
               value={i + 1}
               disabled={disableButton}
-            ></button>
+            >
+              <div></div>
+            </div>
           ))}
-          <button className="finish-score">
+          <div className="finish-score">
             <div className="finish-score center">
               <span> {multiplier}X</span>
               <p>{scoreNumber}</p>
             </div>
-          </button>
+          </div>
         </div>
       </div>
     </>
