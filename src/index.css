@@ -2,6 +2,13 @@
   box-sizing: border-box;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+
 .score {
   display: flex;
   align-items: center;
@@ -10,34 +17,39 @@
   max-width: 740px;
   height: 100px;
   background-color: #213743;
-  margin-bottom: 3px;
+  margin-bottom: 10px;
   color: #ffffff;
+  font-size: 24px;
+  font-weight: bold;
 }
 
 .wrapper {
-  position: relative;
   display: flex;
-  max-height: 650px;
-  max-width: 740px;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 740px;
+  margin: auto;
+  background-color: #0F212E;
+  padding: 10px;
+  border-radius: 10px;
 }
 
-.wrapper .settings {
+.settings {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
+  align-items: center;
   background-color: rgb(33, 55, 67);
-  min-width: 200px;
-  padding: 10px;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 10px;
 }
 
 .settings .btn {
-  position: relative;
   display: inline-flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  box-shadow: rgb(0 0 0 / 20%) 0px 1px 3px 0px, rgb(0 0 0 / 12%) 0px 1px 2px 0px;
   background: rgb(31, 255, 32);
   padding: 15px;
   font-size: 20px;
@@ -56,16 +68,21 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
   grid-gap: 5px;
-  background-color: #0F212E;
-  padding: 3px;
+  padding: 10px;
+  max-width: 740px;
+  margin: auto;
 }
 
 .container button {
   background-color: #2F4553;
-  aspect-ratio: 1;
   border-radius: 7px;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.3s;
+}
+
+.container .box {
+  aspect-ratio: 1;
+  width: 100%;
 }
 
 .container .box:hover {
@@ -125,7 +142,7 @@
 
 @media (max-width: 600px) {
   .score {
-    font-size: 0.8rem;
+    font-size: 1.2rem;
     height: 80px;
   }
 
@@ -138,12 +155,11 @@
     grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
   }
 
-  .container button {
+  .container .box {
     aspect-ratio: 1;
   }
 
   .wrapper {
-    max-height: 100%;
     flex-direction: column;
     align-items: center;
   }
