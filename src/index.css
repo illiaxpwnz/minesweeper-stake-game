@@ -87,6 +87,9 @@ body {
   aspect-ratio: 1;
   width: 100%;
   background-size: cover; /* Ensure images cover the button */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .container .box {
