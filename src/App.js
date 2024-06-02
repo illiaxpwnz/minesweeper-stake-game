@@ -3,45 +3,17 @@ import random from 'random';
 import './index.css';
 
 const BOARD_SIZE = 5;
-const NUM_MINES = 5;
+const POINT_REWARD = 100;
 
-const App = ({
-  oneCliked,
-  twoCliked,
-  threeCliked,
-  fourCliked,
-  fiveCliked,
-  sixCliked,
-  sevenCliked,
-  eightCliked,
-  nineCliked,
-  tenCliked,
-  elevenCliked,
-  twelveCliked,
-  thirteenCliked,
-  fourteenCliked,
-  fifteenCliked,
-  sixteenCliked,
-  seventeenCliked,
-  eighteenCliked,
-  nineteenCliked,
-  twentyCliked,
-  twentyOneCliked,
-  twentyTwoCliked,
-  twentyThreeCliked,
-  twetyFourCliked,
-  twentyFiveCliked,
-}) => {
+const App = () => {
   const [numberOfMines, setNumberOfMines] = useState('');
   const [playing, setPlaying] = useState(false);
-  const [cashout, setCashout] = useState(false);
   const [lost, setLost] = useState(false);
   const [multiplier, setMultiplier] = useState(0);
   const [scoreNumber, setScoreNumber] = useState(0.0000000);
   const [disableButton, setDisableButton] = useState(false);
   const [minesSelectedNumber, setMinesSelectedNumber] = useState([]);
 
-  const POINT_REWARD = 100;
   const finalPoints = multiplier * POINT_REWARD;
 
   const resetCss = () => {
@@ -53,7 +25,7 @@ const App = ({
   };
 
   const verifier = (nb) => {
-    return minesSelectedNumber.some((number) => nb === number);
+    return minesSelectedNumber.includes(nb);
   };
 
   const importMinesNumber = () => {
@@ -62,7 +34,7 @@ const App = ({
     let max = 25;
     for (let i = 0; i < parseInt(numberOfMines); i++) {
       let rNB = random.int(min, max);
-      if (!verifier(rNB)) {
+      if (!newMinesSelectedNumber.includes(rNB)) {
         newMinesSelectedNumber.push(rNB);
       } else {
         i--;
@@ -171,34 +143,6 @@ const App = ({
       </div>
     </>
   );
-};
-
-App.defaultProps = {
-  oneCliked: false,
-  twoCliked: false,
-  threeCliked: false,
-  fourCliked: false,
-  fiveCliked: false,
-  sixCliked: false,
-  sevenCliked: false,
-  eightCliked: false,
-  nineCliked: false,
-  tenCliked: false,
-  elevenCliked: false,
-  twelveCliked: false,
-  thirteenCliked: false,
-  fourteenCliked: false,
-  fifteenCliked: false,
-  sixteenCliked: false,
-  seventeenCliked: false,
-  eighteenCliked: false,
-  nineteenCliked: false,
-  twentyCliked: false,
-  twentyOneCliked: false,
-  twentyTwoCliked: false,
-  twentyThreeCliked: false,
-  twetyFourCliked: false,
-  twentyFiveCliked: false,
 };
 
 export default App;
