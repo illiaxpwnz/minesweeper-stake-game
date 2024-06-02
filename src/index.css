@@ -24,28 +24,25 @@ body {
 }
 
 .wrapper {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 740px;
+  max-height: 650px;
   background-color: #0F212E;
   padding: 10px;
   border-radius: 10px;
-  max-width: 740px;
   margin: auto;
-  position: relative;
-  max-height: 650px;
 }
 
-.settings {
+.wrapper .settings {
   display: flex;
   flex-direction: column;
   align-items: stretch;
   background-color: rgb(33, 55, 67);
-  padding: 20px;
-  border-radius: 10px;
-  margin-bottom: 10px;
-  width: 100%;
   min-width: 200px;
+  width: 100%;
 }
 
 .settings .btn {
@@ -53,6 +50,7 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
+  box-shadow: rgb(0 0 0 / 20%) 0px 1px 3px 0px, rgb(0 0 0 / 12%) 0px 1px 2px 0px;
   background: rgb(31, 255, 32);
   padding: 25px;
   font-size: 25px;
@@ -60,7 +58,6 @@ body {
   border: 1px solid transparent;
   border-radius: 15px;
   cursor: pointer;
-  box-shadow: rgb(0 0 0 / 20%) 0px 1px 3px 0px, rgb(0 0 0 / 12%) 0px 1px 2px 0px;
 }
 
 .btn-container {
@@ -73,9 +70,9 @@ body {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 5px;
-  padding: 10px;
-  width: 100%;
+  padding: 3px;
   background-color: #0F212E;
+  width: 100%;
 }
 
 .container button {
@@ -86,7 +83,6 @@ body {
   position: relative;
   aspect-ratio: 1;
   width: 100%;
-  background-size: cover; /* Ensure images cover the button */
   display: flex;
   justify-content: center;
   align-items: center;
