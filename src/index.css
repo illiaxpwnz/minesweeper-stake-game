@@ -26,7 +26,7 @@ body {
 .wrapper {
   position: relative;
   display: flex;
-  flex-direction: column; /* Change to column for mobile */
+  flex-direction: column;
   align-items: center;
   max-width: 740px;
   max-height: 650px;
@@ -42,8 +42,7 @@ body {
   align-items: stretch;
   background-color: rgb(33, 55, 67);
   min-width: 200px;
-  width: 100%; /* Full width on mobile */
-  margin-bottom: 10px; /* Add margin for spacing */
+  width: 100%;
 }
 
 .settings .btn {
@@ -63,17 +62,18 @@ body {
 
 .btn-container {
   text-align: center;
-  padding-top: 20px; /* Adjust padding for mobile */
+  padding-top: 20px;
   width: 100%;
 }
 
 .container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(70px, 1fr)); /* Adjust columns for responsiveness */
+  grid-template-columns: repeat(5, 1fr);
   grid-gap: 5px;
   padding: 3px;
   background-color: #0F212E;
   width: 100%;
+  max-width: 740px;
 }
 
 .container button {
@@ -170,5 +170,9 @@ body {
 
   .btn-container {
     padding-top: 100px;
+  }
+
+  .container {
+    max-width: 740px;
   }
 }
